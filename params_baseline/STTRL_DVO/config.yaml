@@ -1,0 +1,63 @@
+env:
+  verbose: False
+  max_episode_steps: 500
+  using_robot_frame: False
+  delay: 0.0
+  laser_max_ratio: 0.5
+  domain_rand: False
+  rand_scale: 0.01
+  cv_show: True
+  using_tro_vo: False
+  # DVO heading selector:
+  #   smoothed - preserve the original anti-jitter behavior
+  #   paper    - choose the closest feasible boundary exactly as Algorithm 1
+  dvo_heading_mode: "smoothed"
+  dvo_smoothing_tolerance_deg: 10.0
+  env_seed_base: 0
+
+curriculum_learning:
+  # [is_static, obstacles_num, stage_steps_limit, dynamic_goal]
+  stage_property: [
+                    [False, 10, 500, False],
+                    [False, 10, 5000, True]
+                  ]
+
+reward_coefficiency:
+  co_tracking_reward: 7.0
+  co_collision_reward: 1.0
+  co_guidance_reward: 2.0
+
+training_param:
+  env_id: 'custom/MagRobotNavigationSimEnv-v1'
+  algorithm: 'ppo_multi'
+  architecture: 'STTRL_DVO'
+  env_num: 8
+  time_steps: 3000000
+  save_freq: 300000
+  checkpoint_dir: './checkpoint/STTRL_DVO'
+  tensorboard: './tensorboard/STTRL_DVO'
+  num_eval_episodes: 100
+
+network_param:
+  latent_dim_pi: 256
+  latent_dim_vf: 256
+  state_dim: 7
+  lidar_dim: 360
+  time_step: 3
+  time_step_horizon: 3
+  token_dim: 32
+  state_input_shape: 7
+  lidar_input_shape: 360
+  transformer_params: [[1, 64], [1, 64]]
+  using_causal: True
+
+rl_param:
+  using_lr_decay: False
+  learning_rate: 0.0003
+  n_steps: 4096
+  batch_size: 512
+  n_epochs: 8
+  gamma: 0.99
+  gae_lambda: 0.95
+  clip_range: 0.16
+  rl_seed: 1

@@ -1,0 +1,67 @@
+[build-system]
+requires = ["setuptools>=68", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "mag-robot-nav-gym"
+version = "1.0.0"
+description = "STTRL-DVO magnetic robot navigation simulation and reinforcement learning"
+readme = "README.md"
+requires-python = ">=3.9"
+license = {file = "LICENSE"}
+authors = [
+  {name = "Fanghao Wang"},
+  {name = "Binghong Chen"},
+  {name = "Youchao Zhang"},
+  {name = "Xiangyu Guo"},
+  {name = "Yining Lyu"},
+  {name = "Chuanjie Liu"},
+  {name = "Alois Knoll"},
+  {name = "Di Cui"},
+  {name = "Huanyu Jiang"},
+  {name = "Yibin Ying"},
+  {name = "Mingchuan Zhou"},
+]
+classifiers = [
+  "Development Status :: 4 - Beta",
+  "Intended Audience :: Science/Research",
+  "License :: OSI Approved :: MIT License",
+  "Programming Language :: Python :: 3",
+  "Programming Language :: Python :: 3.9",
+  "Programming Language :: Python :: 3.10",
+  "Programming Language :: Python :: 3.11",
+  "Topic :: Scientific/Engineering :: Artificial Intelligence",
+]
+dependencies = [
+  "gymnasium==0.29.1",
+  "numpy==1.21.2",
+  "torch==2.5.0",
+  "stable-baselines3==2.2.1",
+  "opencv-python==4.5.5.64",
+  "matplotlib==3.5.0",
+  "scipy==1.9.3",
+  "shapely==2.0.1",
+  "cvxpy==1.3.1",
+  "ecos==2.0.12",
+  "osqp==0.6.2.post8",
+  "qdldl==0.1.5.post3",
+  "pyyaml==6.0",
+  "tensorboard==2.7.0",
+  "protobuf==3.19.1",
+]
+
+[project.urls]
+Homepage = "https://github.com/fanghaow/STTRL-DVO"
+Repository = "https://github.com/fanghaow/STTRL-DVO"
+Paper = "https://doi.org/10.1109/TRO.2026.3701578"
+Issues = "https://github.com/fanghaow/STTRL-DVO/issues"
+
+[project.optional-dependencies]
+dev = ["pytest==7.1.3"]
+
+[tool.setuptools.packages.find]
+include = ["mag_robot_nav*", "torchrl*"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+addopts = "--strict-markers"

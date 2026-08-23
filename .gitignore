@@ -1,0 +1,29 @@
+# Python caches and build outputs
+__pycache__/
+*.py[cod]
+.pytest_cache/
+*.egg-info/
+build/
+dist/
+.release_test/
+
+# Local environments and editor state
+.venv/
+venv/
+.vscode/
+.claude/
+scripts/tempCodeRunnerFile.py
+*.log
+
+# Generated experiment artifacts
+checkpoint/**
+!checkpoint/STTRL_DVO/
+!checkpoint/STTRL_DVO/pretrained/
+!checkpoint/STTRL_DVO/pretrained/ppo_multi_3000000_steps.zip
+tensorboard/
+video/
+algorithm_statistics.csv
+
+# Platform files
+.DS_Store
+Thumbs.db

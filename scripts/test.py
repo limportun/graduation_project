@@ -323,6 +323,7 @@ def evaluate(spec: MethodSpec, seed: int, episodes: int, model_step: int,
     base_env = MagRobotNavigationSimEnv(
         config=config,
         evaluation=True,
+        save_video=True,
         env_type=environment,
         render_mode="human" if render else None,
     )

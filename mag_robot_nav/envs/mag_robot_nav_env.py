@@ -194,7 +194,7 @@ class MagRobotNavigationSimEnv(gym.Env):
             os.makedirs(filepath, exist_ok=True)
             self.sim_video_writer = cv2.VideoWriter(
                 os.path.join(filepath, filename),
-                cv2.VideoWriter_fourcc(*"DIVX"), 45, frame_size,
+                cv2.VideoWriter_fourcc(*"mp4v"), 40, frame_size,
             )
 
         # --- Visualizer ---
